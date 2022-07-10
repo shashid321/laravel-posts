@@ -10,5 +10,12 @@
     <h1>{{$post->name}}</h1>
     <p>{{$post->description}}</p>
     <span>{{$post->status}}</span>
+
+
+    <form action="{{route('comment', ['id' => $post->id])}}" method="post">
+        <input type="hidden" name="post_id" value={{$post->id}}>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
 </body>
 </html>

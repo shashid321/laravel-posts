@@ -46,9 +46,34 @@ class PostController extends Controller
         return redirect()->route('index');
     }
 
+    // function find($val){
+    //     select * from posts where id = $val;
+    // }
     public function show($id){
         $post = Post::find($id);
-        // dd($post); 
         return view('post-detail', compact('post'));
+    }
+
+    public function edit($id){
+        $post = Post::find($id);
+        return view('edit-post', compact('post'));
+    }
+
+    public function update(Request $request, $id){
+        $validate = $request->validate([
+            'name' => "required|unique:posts|max:8",
+            'description' => "required"
+        ]);
+
+        // $post = Post::find($id);
+
+        Post::find($id)->update($request->all());
+        return redirect()->route('index');
+    }
+
+    public function destroy($id){
+        Post::destroy($id);
+
+        return redirect()->route('index');
     }
 }

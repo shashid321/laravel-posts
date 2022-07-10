@@ -25,8 +25,16 @@
                     <td>{{$post->status}}</td>
                     <td>
                     <!-- /show/3 -->
+                    <!-- /show/2 -->
                         <!-- <a href="{{url('/show/'.$post->id)}}">show</a> -->
                         <a href="{{ route('post.show', ['id' => $post->id])}}">show</a>
+                        <a href="{{ route('post.edit', ['id' => $post->id])}}">Edit</a>
+                        <form action="{{ route('post.delete', ['id' => $post->id])}}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button>Delete</button>
+                        </form>
+                        <!-- <a href="{{ route('post.delete', ['id' => $post->id])}}">Delete</a> -->
 
                     </td>
                 </tr>

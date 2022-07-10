@@ -45,3 +45,19 @@ Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/add-post', [PostController::class, 'create'])->name('add-post');
 Route::post('/add-post', [PostController::class, 'store'])->name('submit.post');
 Route::get('/show/{id}', [PostController::class, 'show'])->name('post.show');
+Route::get('/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+Route::put('/update/{id}', [PostController::class, 'update'])->name('post.update');
+Route::delete('/delete/{id}', [PostController::class, 'delete'])->name('post.delete');
+
+// Route::resource('/comment', [CommentController::class]);
+
+
+// Route::resource('/comment', [CommentController::class]);
+
+// Route::get('/comment', [CommentController::class, 'index'])->name('index');
+// Route::get('/comment/create', [CommentController::class, 'create'])->name('add-post');
+// Route::post('/comment/store', [CommentController::class, 'store'])->name('submit.post');
+// Route::get('/Comment/show/{id}', [CommentController::class, 'show'])->name('post.show');
+// Route::get('/Comment/edit/{id}', [CommentController::class, 'edit'])->name('post.edit');
+// Route::put('/Comment/update/{id}', [CommentController::class, 'update'])->name('post.update');
+// Route::delete('/Comment/destroy/{id}', [CommentController::class, 'delete'])->name('post.delete');
