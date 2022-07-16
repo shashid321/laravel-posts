@@ -9,6 +9,7 @@ class PostController extends Controller
 {
     public function index(){
         $posts = Post::all();
+        // dd(Post::lazy());
         // $posts = Post::where('category', 'mat')->get();
 
         return view('home', ['posts' => $posts]);

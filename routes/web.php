@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +63,18 @@ Route::delete('/delete/{id}', [PostController::class, 'delete'])->name('post.del
 // Route::get('/Comment/edit/{id}', [CommentController::class, 'edit'])->name('post.edit');
 // Route::put('/Comment/update/{id}', [CommentController::class, 'update'])->name('post.update');
 // Route::delete('/Comment/destroy/{id}', [CommentController::class, 'delete'])->name('post.delete');
+
+
+
+// Authentication
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'store'])->name('login.store');
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('index');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
