@@ -17,5 +17,10 @@
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <button>Submit</button>
     </form>
+
+    <h2>Comments</h2>
+    @foreach($post->comments as $comment)
+    
+    
 </body>
 </html>

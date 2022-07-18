@@ -46,6 +46,19 @@ class CommentController extends Controller
     public function show($id)
     {
         //
+        $comment = Comment::with('posts')->find($id);
+
+            [
+                'name'=>'',
+                'desc' => '',
+                'post_id' => '',
+                'posts' => [
+                    'name'=> '',
+                    'description'=>''
+            ],
+            ];
+
+        return view('comment-detail', compact('comment'));
     }
 
     /**

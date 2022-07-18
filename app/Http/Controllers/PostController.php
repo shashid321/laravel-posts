@@ -11,6 +11,9 @@ class PostController extends Controller
         $posts = Post::all();
         // dd(Post::lazy());
         // $posts = Post::where('category', 'mat')->get();
+        // foreach($posts as $post){
+        //     echo $post->pivot->category;
+        // }
 
         return view('home', ['posts' => $posts]);
     }
@@ -52,7 +55,9 @@ class PostController extends Controller
     // }
     public function show($id){
         $post = Post::find($id);
-        return view('post-detail', compact('post'));
+        // $comments = Comments::where('post_id', $id)->get();
+        
+        return view('post-detail', compact('post', 'comments'));
     }
 
     public function edit($id){
